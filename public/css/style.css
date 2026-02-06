@@ -1,0 +1,147 @@
+:root {
+    --primary-blue: #0f172a;
+    --accent-blue: #38bdf8;
+    --bg-gray: #f8fafc;
+    --card-white: #ffffff;
+    --text-main: #1e293b;
+    --success-green: #22c55e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-gray);
+    color: var(--text-main);
+}
+
+header {
+    background-color: var(--primary-blue);
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    border-bottom: 4px solid var(--accent-blue);
+}
+
+main {
+    max-width: 1000px;
+    margin: -30px auto 50px; /* Pulls form slightly over the header for a modern look */
+    padding: 0 1.5rem;
+}
+
+.search-section {
+    background: var(--card-white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.search-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+input, select {
+    padding: 0.8rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+}
+
+button[type="submit"] {
+    grid-column: 1 / -1; /* Stretch button across the grid */
+    background-color: var(--accent-blue);
+    color: var(--primary-blue);
+    font-weight: 700;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+button:hover {
+    background-color: #7dd3fc;
+    transform: translateY(-1px);
+}
+
+/* RESULTS */
+.results-section {
+    margin-top: 3rem;
+}
+
+.flight-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
+}
+
+.flight-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.flight-route {
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.route-arrow {
+    color: var(--accent-blue);
+}
+
+.flight-details {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.price-tag {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+}
+
+.book-button {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}

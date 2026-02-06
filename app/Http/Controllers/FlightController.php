@@ -18,8 +18,8 @@ class FlightController extends Controller
         $passengers = $request->input('passengers', 1);
 
         // Meklējam lidojumus DB
-        $flights = Flight::where('from', 'LIKE', "%$from%")
-            ->where('to', 'LIKE', "%$to%")
+        $flights = Flight::where('origin', 'LIKE', "%$from%")
+            ->where('destination', 'LIKE', "%$to%")
             ->whereDate('flight_date', $date)
             ->with('airplane.airline') // Ielādējam saistītos datus (Eager Loading)
             ->get();

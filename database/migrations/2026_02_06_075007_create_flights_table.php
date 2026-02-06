@@ -9,22 +9,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('flights', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('airplane_id')
-                ->constrained('airplanes')
-                ->cascadeOnDelete();
-
-            $table->date('flight_date');
-            $table->date('return_date');
-            $table->string('departure_city', 45)->nullable();
-            $table->string('arrival_city', 45)->nullable();
-            $table->decimal('price', 10, 2)->unsigned();
-            $table->timestamps();
-        });
-    }
+        public function up()
+        {
+            Schema::create('flights', function (Blueprint $table) {
+                $table->id('flight_id'); // Pārliecinies, ka nosaukums sakrīt ar DB
+                $table->foreignId('airplane_id');
+                $table->date('flight_date');
+                $table->date('return_date');
+                $table->string('origin');        // Mainām 'from' -> 'origin'
+                $table->string('destination');   // Mainām 'to' -> 'destination'
+                $table->decimal('price', 10, 2);
+                $table->timestamps();
+            });
+        }
 
     /**
      * Reverse the migrations.

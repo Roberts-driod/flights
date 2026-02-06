@@ -31,31 +31,32 @@ class FlightDatabaseSeeder extends Seeder
         ]);
 
         // 3. Ieliekam Lidojumus (pielāgo datumus, lai tie būtu nākotnē!)
-        DB::table('flights')->insert([
-            [
-                'airplane_id' => $airplaneId,
-                'flight_date' => Carbon::now()->addDays(5)->format('Y-m-d'),
-                'return_date' => Carbon::now()->addDays(10)->format('Y-m-d'),
-                'from' => 'Riga',
-                'to' => 'London',
-                'price' => 150.00,
-            ],
-            [
-                'airplane_id' => $airplaneId,
-                'flight_date' => Carbon::now()->addDays(7)->format('Y-m-d'),
-                'return_date' => Carbon::now()->addDays(14)->format('Y-m-d'),
-                'from' => 'Riga',
-                'to' => 'Berlin',
-                'price' => 89.99,
-            ],
-            [
-                'airplane_id' => $airplaneId2,
-                'flight_date' => Carbon::now()->addDays(2)->format('Y-m-d'),
-                'return_date' => Carbon::now()->addDays(5)->format('Y-m-d'),
-                'from' => 'Berlin',
-                'to' => 'Riga',
-                'price' => 120.50,
-            ]
-        ]);
+// 3. Ieliekam Lidojumus
+DB::table('flights')->insert([
+    [
+        'airplane_id'   => $airplaneId,
+        'flight_date'   => Carbon::now()->addDays(5)->format('Y-m-d'),
+        'return_date'   => Carbon::now()->addDays(10)->format('Y-m-d'),
+        'origin'        => 'Riga',
+        'destination'   => 'London',
+        'price'         => 150.00,
+    ],
+    [
+        'airplane_id'   => $airplaneId,
+        'flight_date'   => Carbon::now()->addDays(7)->format('Y-m-d'),
+        'return_date'   => Carbon::now()->addDays(14)->format('Y-m-d'),
+        'origin'        => 'Riga',
+        'destination'   => 'Berlin',
+        'price'         => 89.99,
+    ],
+    [
+        'airplane_id'   => $airplaneId2,
+        'flight_date'   => Carbon::now()->addDays(2)->format('Y-m-d'),
+        'return_date'   => Carbon::now()->addDays(5)->format('Y-m-d'),
+        'origin'        => 'Berlin',
+        'destination'   => 'Riga',
+        'price'         => 120.50,
+    ]
+]);
     }
 }

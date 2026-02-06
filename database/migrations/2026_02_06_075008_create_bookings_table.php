@@ -9,21 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('bookings', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('flight_id')
-                ->constrained('flights')
-                ->cascadeOnDelete();
+        public function up()
+        {
+            Schema::create('bookings', function (Blueprint $table) {
+                $table->id('book_id'); // Tavs primārais ID
 
-            $table->unsignedInteger('passenger_count')->nullable();
-            $table->decimal('total_price', 10, 2)->unsigned()->nullable();
-            $table->dateTime('booking_date')->nullable();
-            $table->timestamps();
-        });
-    }
+                // Svarīgais labojums:
+                // Mēs pasakām: sasaisti 'flight_id' ar tabulas 'flights' kolonnu 'flight_id'
+                $table->foreignId('flight_id')->constrained('flights', 'flight_id')->onDelete('cascade');
 
+                $table->integer('passenger_count');
+                $table->decimal('total_price', 10, 2);
+                $table->dateTime('booking_date');
+                $table->timestamps();
+            });
+        }
     /**
      * Reverse the migrations.
      */
